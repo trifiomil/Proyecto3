@@ -20,7 +20,7 @@ public:
     //Modificacion
     void setChofer(bool chof);
     void setBlindado(bool blind);
-    
+
     double calcularCosto(int diasDuracion);
     void muestra();
 private:
@@ -47,7 +47,34 @@ void Autos::setChofer(bool chof){
 void Autos::setBlindado(bool blind){
     blindado=blind;
 }
-//double Autos::calcularCosto(int diasDuracion);
+double Autos::calcularCosto(int diasDuracion)
+{
+    // se regresa el costo de cada una de las clases virtuales y su tipo o blindaje
+    double costo = 0;
+    if(blindado)
+    {
+        if(tipo == 'M' )
+            costo = 600 * diasDuracion;
+        else if(tipo == 'S')
+            costo = 800 * diasDuracion;
+        else if( tipo == 'T')
+            costo = 400 * diasDuracion;
+        costo = costo * .4 + costo;
+
+    }else
+    {
+        if(tipo == 'M' )
+            costo = 600 * diasDuracion;
+        else if(tipo == 'S')
+            costo = 800 * diasDuracion;
+        else if( tipo == 'T')
+            costo = 400 * diasDuracion;
+    }
+    return costo;
+
+
+}
+
 void Autos::muestra(){
     cout << "Clave: " <<getClave() << endl;
     cout << "Tipo: " << getTipo() << endl;
@@ -60,7 +87,7 @@ void Autos::muestra(){
     if (chofer)
         cout << "Tiene chofer" << endl;
     else cout << "No tiene chofer" << endl;
-        
+
 }
 
 #endif /* Autos_h */

@@ -10,8 +10,8 @@
 #include "Reserva.h"
 #include "Autos.h"
 #include "Aviones.h"
+//dos
 int main() {
     Servicio *Serv[6];
     Reserva *Res[20];
-    return 0;
 }
