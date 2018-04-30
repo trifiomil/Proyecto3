@@ -57,7 +57,56 @@ if(Servicios.is_open())
 
         contReservaciones++;
     }
+    do {
+        cout << "Que desea hacer?" << endl;
+        cout << "1. Consultar la lista de Servicios" << endl;
+        cout << "2. Consultar la lista de reservaciones" << endl;
+        cout << "3. Consultar las reservas de un servicio dado" << endl;
+        cout << "4. Consulta las reservas de una fecha específica" << endl;
+        cout << "5. Hacer una reservación" << endl;
+        cout << "7. Terminar" << endl;
+        cin >> op;
+        switch (op)
+        {
+            case 1:
+            {
+                muestraServ(serv[], 6)
 
+            }
+                break;
+            case 2:
+            {
+
+            }
+                break;
+            case 3:
+            {
+            }
+                break;
+            case 4:
+            {
+
+            }
+                break;
+            case 5:
+            {
+
+            }
+            break;
+            case 6:
+            {
+
+            }
+            break;
+
+        } while (op!=7);
+
+
+
+
+
+
+}
 
     Servicios.close();
     return 0;
