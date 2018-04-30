@@ -22,14 +22,15 @@ public:
     //Modificacion
     void setCantPersonas(int cant);
     void setAdicional(int ad);
-    double calcularCosto(int diasDuracion);
+    int calcularCosto(int diasDuracion);
+
     void muestra();
-    
+
 private:
     int cantPersonas, adicional;
 };
 Aviones::Aviones():Servicio(){
-    
+
 }
 Aviones::Aviones(string clave, char tipo, double costo, string desc, int cant, int ad): Servicio(clave, tipo, costo, desc){
     cantPersonas=cant;
@@ -49,7 +50,46 @@ void Aviones::setCantPersonas(int cant){
 void Aviones::setAdicional(int ad){
     adicional=ad;
 }
-//double Aviones::calcularCosto(int diasDuracion);
+int Aviones::calcularCosto(int dias)
+{
+      int costo;
+    if(tipo == 'H')
+    {
+        costo = 50000;
+        if(cantPersonas > 6)
+        {
+            for(int i = cantPersonas; i > 6; i--)
+            {
+                costo = costo + costo * 0.04;
+            }
+        }
+    }
+    else if(tipo == 'J')
+    {
+        costo = 120000;
+        if(cantPersonas > 20)
+        {
+            for(int i = cantPersonas; i > 20; i--)
+            {
+                costo = costo + costo * 0.04;
+            }
+        }
+    }
+    else if(tipo == 'A')
+    {
+        costo = 80000;
+        if(cantPersonas > 10)
+        {
+            for(int i = cantPersonas; i > 10; i--)
+            {
+                costo = costo + costo * 0.04;
+            }
+        }
+    }
+
+    return costo * dias;
+
+}
 void Aviones::muestra(){
     cout << "Clave: " <<getClave() << endl;
     cout << "Tipo: " << getTipo() << endl;
@@ -57,7 +97,7 @@ void Aviones::muestra(){
     cout << "Descripcion: " << getDescripcion() << endl;
     cout << "Cantidad de personas: " << getCantPersonas() << endl;
     cout << "Adicionales: " << getAdicional() << endl;
-    
+
 }
 
 #endif /* Aviones_h */

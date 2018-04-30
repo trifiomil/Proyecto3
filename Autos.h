@@ -20,11 +20,11 @@ public:
     //Modificacion
     void setChofer(bool chof);
     void setBlindado(bool blind);
-
-    double calcularCosto(int diasDuracion);
+    int calcularCosto(int diasDuracion);
     void muestra();
 private:
     bool chofer, blindado;
+    int diasDuracion;
 };
 
 Autos::Autos():Servicio(){
@@ -47,33 +47,29 @@ void Autos::setChofer(bool chof){
 void Autos::setBlindado(bool blind){
     blindado=blind;
 }
-double Autos::calcularCosto(int diasDuracion)
-{
-    // se regresa el costo de cada una de las clases virtuales y su tipo o blindaje
-    double costo = 0;
-    if(blindado)
-    {
-        if(tipo == 'M' )
-            costo = 600 * diasDuracion;
-        else if(tipo == 'S')
-            costo = 800 * diasDuracion;
-        else if( tipo == 'T')
-            costo = 400 * diasDuracion;
-        costo = costo * .4 + costo;
 
-    }else
+int Autos::calcularCosto(int dias){
+    int costo;
+    if(tipo == 'S')
     {
-        if(tipo == 'M' )
-            costo = 600 * diasDuracion;
-        else if(tipo == 'S')
-            costo = 800 * diasDuracion;
-        else if( tipo == 'T')
-            costo = 400 * diasDuracion;
+        costo = 800;
     }
-    return costo;
-
+    else if(tipo == 'M')
+    {
+        costo = 600;
+    }
+    else
+        costo = 400;
+    if(blindado)
+        costo = costo + costo * .4;
+    if(chofer)
+        costo += 400;
+    return costo * dias;
 
 }
+
+
+
 
 void Autos::muestra(){
     cout << "Clave: " <<getClave() << endl;

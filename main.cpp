@@ -7,11 +7,29 @@
 //
 
 #include <iostream>
+#include<fstream>
+#include<string>
 #include "Reserva.h"
 #include "Autos.h"
 #include "Aviones.h"
-//dos
+
+using namespace std;
 int main() {
-    Servicio *Serv[6];
-    Reserva *Res[20];
+
+ifstream Servicios;
+ifstream Reservaciones;
+string a,b,c,d,e,f,g,h;
+
+Servicios.open("Servicio.txt");
+if(Servicios.is_open())
+{
+    cout << "se abrio "<< endl;
+}else
+    cout << "no se abrio" << endl;
+
+   Servicio *Serv[6];
+   Reserva Reserva[20];
+
+    Servicios.close();
+    return 0;
 }

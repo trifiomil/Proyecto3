@@ -11,6 +11,7 @@
 #include "Reserva.h"
 #include <string>
 
+using namespace std;
 class Servicio{
 public:
     Servicio();
@@ -25,9 +26,9 @@ public:
     void setTipo(char tipo);
     void setCostoXDia(double costo);
     void setDescripcion(string desc);
-    
-    virtual double calculaCosto(int diasDuracion)=0;
     virtual void muestra()=0;
+    virtual int calcularCosto(int diasDuracion)=0;
+
 protected:
     string clave, descripcion;
     char tipo;
@@ -71,4 +72,7 @@ void Servicio::setCostoXDia(double costo){
 void Servicio::setDescripcion(string desc){
     descripcion=desc;
 }
+
+
+
 #endif /* Servicio_h */

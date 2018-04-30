@@ -10,6 +10,8 @@
 #define Reserva_h
 #include "Fecha.h"
 #include <string>
+
+using namespace std;
 class Reserva{
 public:
     Reserva();
@@ -73,15 +75,15 @@ Fecha Reserva::calcularFinContrato(){
     bool adicional=false, bisiesto=false;
     Fecha fin;
     int d=fechaContrato.getDia(), m=fechaContrato.getMes(), a=fechaContrato.getAnio();
-    
+
     if (a%4==0)
         bisiesto=true;
-    
+
     if (m == 1 || 3 || 5 || 7 || 8 || 10 || 12)
         adicional = true;
     d+=diasDuracion;
-    
-    
+
+
     if (bisiesto && m==2 && d>29){
         m++;
         d-=29;
@@ -104,7 +106,7 @@ Fecha Reserva::calcularFinContrato(){
     }
     fin = Fecha(d, m, a);
     return fin;
-    
+
 }
 
 
